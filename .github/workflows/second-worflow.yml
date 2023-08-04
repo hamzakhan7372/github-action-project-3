@@ -1,0 +1,12 @@
+name: Outputing issues event detials
+on: 
+  workflow_run:
+    workflows: ["Linting, testing and building React-project"]
+    types:
+      - completed
+jobs:
+  Outputting_event_details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Outputting event details
+        run: echo "${{ toJSON(github)}}"
